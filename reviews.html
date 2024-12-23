@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <link rel="stylesheet" href="style/reviews.css">
+    <link rel="stylesheet" href="style/styles.css">
+</head>
+<body>    
+  <div class="reviews-container">
+    <div class="main-wrapper">
+      <img src="img/background.png" class="background-image" alt="" />
+      
+      <!-- Navigation Bar with Theme Toggle Button -->
+      <nav class="navigation-bar">
+        <div class="nav-content">
+          <div class="logo-column">
+            <img id="change-img" src="img/logo-mpu.png" class="logo" alt="Mathsem Logo" />
+          </div>
+          <div class="menu-column">
+            <div class="menu-items">
+              <a href="index.html" class="nav-link">О программе</a>
+              <a href="reviews.html" class="nav-link">Отзывы</a>
+              <a href="help.html" class="nav-link">Помощь</a>
+              <a href="contacts.html" class="nav-link">Контакты</a>
+              <a href="#records" class="nav-link">Записи</a>
+              <button href="login.html" class="login-btn">Войти</button>
+              <!-- Theme Toggle Button -->
+              <button class="theme-toggle-btn" onclick="toggleTheme()">🌙</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+      
+      <div class="feedback-section">
+        <div class="feedback-container">
+          <div class="feedback-content">
+            <div class="form-column">
+              <form class="feedback-form">
+                <h1 class="form-title">НАПИШИТЕ О НАС ОТЗЫВ!</h1>
+                <label for="userName" class="form-label">Напишите ваше имя:</label>
+                <input type="text" id="userName" class="form-input" placeholder="Ваше имя" aria-label="Enter your name" />
+                <label for="userComment" class="form-label">Напишите ваш комментарий:</label>
+                <textarea id="userComment" class="form-textarea" placeholder="Ваш комментарий" aria-label="Enter your comment"></textarea>
+                <button type="submit" class="submit-btn">Отправить</button>
+              </form>
+            </div>
+            <div class="image-column">
+              <img src="img/reviews1.png" class="feedback-image" alt="Feedback illustration" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <h2 class="reviews-title">ОТЗЫВЫ MATHSEM</h2>
+    <div class="reviews-grid">
+        <div class="reviews-row">
+          <div class="review-card">
+            <h3 class="reviewer-name">Пелагея Тимуровна Евсеева</h3>
+            <div class="review-content">
+              <img loading="lazy" src="img/reviews2.png" class="review-icon" alt="" />
+              <p class="review-text">очевидна дальнейших опыт</p>
+            </div>
+          </div>
+          <div class="review-card">
+            <h3 class="reviewer-name">Васильева Зинаида</h3>
+            <div class="review-content">
+              <img loading="lazy" src="img/reviews2.png" class="review-icon" alt="" />
+              <p class="review-text">место постоянное особен...</p>
+            </div>
+          </div>
+        </div>
+        <div class="reviews-row">
+          <div class="review-card">
+            <h3 class="reviewer-name">Селиван Брагин</h3>
+            <div class="review-content">
+              <img src="img/reviews2.png" class="review-icon" alt="" />
+              <p class="review-text">активизации</p>
+            </div>
+          </div>
+          <div class="review-card">
+            <h3 class="reviewer-name">Олимпиада Маркова</h3>
+            <div class="review-content">
+              <img src="img/reviews2.png" class="review-icon" alt="" />
+              <p class="review-text">эксперимент высокотехно...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <button class="view-all-btn">Смотреть все</button>
+    
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo-column">
+          <img id="change-img2" src="img/logo-mpu.png" class="footer-logo" alt="Mathsem Logo" />
+        </div>
+        <div class="footer-divider-column">
+          <div class="footer-divider"></div>
+        </div>
+        <div class="footer-copyright-column">
+          <p class="copyright-text">©mospolytech</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="switch.js"></script>
+</body>
+</html>

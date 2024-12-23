@@ -1,0 +1,615 @@
+@font-face {
+  font-family: "Igra Sans";
+  /* 1) The exact local names must match how the font is registered on the system.
+     2) If you know the exact PostScript name, include it here as an additional local() source. */
+  src: local("Igra Sans"),             /* Common name */
+       local("IgraSans-Regular");     /* PostScript or alternative name, if applicable */
+       /* Optional fallback URL to a self-hosted font file if local is not found: */
+       /* url("/fonts/IgraSans.woff2") format("woff2"); */
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Airborn";
+  /* 1) The exact local names must match how the font is registered on the system.
+     2) If you know the exact PostScript name, include it here as an additional local() source. */
+  src: local("Igra Sans"),             /* Common name */
+       local("IgraSans-Regular");     /* PostScript or alternative name, if applicable */
+       /* Optional fallback URL to a self-hosted font file if local is not found: */
+       /* url("/fonts/IgraSans.woff2") format("woff2"); */
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* Now use "Igra Sans" somewhere in your CSS */
+.my-text {
+  font-family: "Igra Sans", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+
+.reviews-container {
+    background: var(--, #ddf8ff);
+    display: flex;
+    padding-bottom: 92px;
+    flex-direction: column;
+    font-family: "Igra Sans";
+    overflow: hidden;
+    align-items: center;
+  }
+  
+  .main-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    position: relative;
+    /* min-height: 1117px; */
+    width: 100%;
+    align-items: center;
+    padding: 100px 0;
+  }
+  
+  .background-image {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .navigation-bar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 50px;
+    background-color: #fff;
+    width: 85vw;
+    max-width: 100%;
+    padding: 14px 39px 14px 18px;
+  }
+  
+  .logo {
+    aspect-ratio: 3.82;
+    object-fit: contain;
+    width: 286px;
+    max-width: 100%;
+  }
+  
+  .menu-column {
+    display: flex;
+    align-items: center;
+    gap: 37px;
+    color: #1e1e1e;
+    /* font: 400 30px "Igra Sans", sans-serif; */
+    font-family: "Igra Sans";
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .login-btn {
+    border-radius: 50px;
+    background-color: #0004ff;
+    color: #fff;
+    padding: 14px 38px 11px 38px;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+  }
+  
+  .footer {
+    border-radius: 50px;
+    background: #fff;
+    margin-top: 102px;
+    width: 100%;
+    max-width: 1530px;
+    padding: 14px 20px;
+  }
+  
+  .footer-content {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .footer-logo-column {
+    width: 20%;
+  }
+  
+  .footer-logo {
+    aspect-ratio: 3.82;
+    object-fit: contain;
+    width: 286px;
+    max-width: 100%;
+  }
+  
+  .footer-divider-column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 58%;
+    margin-left: 20px;
+  }
+  
+  .footer-divider {
+    width: 814px;
+    max-width: 100%;
+    height: 2px;
+    margin: auto 0;
+    border: 2px solid #008ec7;
+  }
+  
+  .footer-copyright-column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 22%;
+    margin-left: 20px;
+  }
+  
+  .copyright-text {
+    color: #1e1e1e;
+    margin: auto 0;
+    font: 400 30px Igra Sans, sans-serif;
+  }
+  
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+  
+  @media (max-width: 991px) {
+    .main-wrapper {
+      max-width: 100%;
+      padding: 0 20px;
+    }
+  
+    .navigation-bar {
+      padding-right: 20px;
+    }
+  
+    .nav-content {
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+  
+    .logo {
+      margin-top: 40px;
+    }
+  
+    .menu-items {
+      margin-top: 40px;
+    }
+  
+    .login-btn {
+      padding: 0 20px;
+    }
+
+    .footer {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+  
+    .footer-content {
+      flex-direction: column;
+      gap: 0;
+    }
+  
+    .footer-logo-column,
+    .footer-divider-column,
+    .footer-copyright-column {
+      width: 100%;
+    }
+  
+    .footer-logo,
+    .footer-divider {
+      margin-top: 40px;
+    }
+  
+    .copyright-text {
+      margin-top: 40px;
+    }
+  }
+
+  /*----------------------*/
+  
+  .hero-image {
+    aspect-ratio: 1.09;
+    object-fit: contain;
+    object-position: center;
+    width: 481px;
+    margin-top: 84px;
+    max-width: 100%;
+  }
+  
+  .hero-title {
+    position: relative;
+    color: #1e1e1e;
+    text-align: center;
+    margin-top: 36px;
+    font: 400 50px Airborne, sans-serif;
+  }
+  
+  .cta-button {
+    position: relative;
+    border-radius: 50px;
+    background-color: #0004ff;
+    width: 360px;
+    max-width: 100%;
+    color: #fff;
+    text-align: center;
+    margin: 74px 0 -23px;
+    padding: 19px 70px;
+    font: 400 40px Igra Sans, sans-serif;
+  }
+  
+  .content-section {
+    align-self: center;
+    display: flex;
+    margin-top: 107px;
+    width: 100%;
+    max-width: 1530px;
+    flex-direction: column;
+  }
+  
+  .download-section {
+    display: flex;
+    flex-direction: column;
+    fill: #fff;
+    overflow: hidden;
+    position: relative;
+    min-height: 918px;
+    width: 100%;
+    padding: 102px 0 0 80px;
+  }
+  
+  .section-title {
+    position: relative;
+    color: #1e1e1e;
+    align-self: start;
+    font: 400 50px Airborne, sans-serif;
+  }
+  
+  .requirements-container {
+    position: relative;
+    align-self: center;
+    margin-top: 61px;
+    width: 100%;
+    max-width: 1300px;
+  }
+  
+  .requirements-content {
+    gap: 20px;
+    display: flex;
+  }
+  
+  .requirements-image {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 35%;
+  }
+  
+  .system-image {
+    aspect-ratio: 0.72;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    flex-grow: 1;
+  }
+  
+  .requirements-text {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 65%;
+    margin-left: 20px;
+  }
+  
+  .requirements-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+  }
+  
+  .requirements-title {
+    color: #008ec7;
+    font: 40px Igra Sans, sans-serif;
+  }
+  
+  .requirements-details {
+    color: #1e1e1e;
+    margin: 40px 28px 0 0;
+    font: 35px Montserrat Alternates, -apple-system, Roboto, Helvetica, sans-serif;
+  }
+  
+  .download-info {
+    position: relative;
+    display: flex;
+    margin-top: 39px;
+    width: 100%;
+    max-width: 1428px;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font: 400 40px Igra Sans, sans-serif;
+  }
+  
+  .version-text {
+    color: #008ec7;
+    align-self: start;
+    margin-top: 10px;
+  }
+  
+  .download-button {
+    border-radius: 50px;
+    background-color: #0004ff;
+    color: #fff;
+    padding: 11px 38px;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    margin-right: 200px;
+  }
+  
+  .features-title {
+    color: #1e1e1e;
+    align-self: start;
+    margin-top: 119px;
+    font: 400 50px Airborne, sans-serif;
+  }
+  
+  .features-section {
+    margin-top: -30px;
+  }
+  
+  .features-content {
+    gap: 10px;
+    display: flex;
+  }
+  
+  .feature-column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    border-radius: 50px;
+    flex-grow: 1;
+    width: 100%;
+    padding: 85px 65px;
+    font: 400 40px Igra Sans, sans-serif;
+  }
+  
+  .feature-text {
+    border-radius: 50px;
+    background-color: #fff;
+    flex-grow: 1;
+    color: #1e1e1e;
+    width: 100%;
+    padding: 85px 65px;
+    font: 400 40px Igra Sans, sans-serif;
+  }
+  
+  .feature-text-alt {
+    border-radius: 50px;
+    background-color: #008ec7;
+    flex-grow: 1;
+    color: #fff;
+    width: 100%;
+    padding: 86px 70px;
+    font: 400 40px Igra Sans, sans-serif;
+  }
+  
+  .team-section {
+    border-radius: 50px;
+    background-color: #fff;
+    margin-top: 58px;
+    padding: 40px 64px;
+  }
+  
+  .team-content {
+    gap: 20px;
+    display: flex;
+  }
+  
+  .team-image-wrapper {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 23%;
+  }
+  
+  .team-image {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 293px;
+    border-radius: 50px;
+    max-width: 100%;
+    flex-grow: 1;
+  }
+  
+  .team-info {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 77%;
+    margin-left: 20px;
+  }
+  
+  .team-details {
+    display: flex;
+    margin-top: 22px;
+    flex-direction: column;
+    font-family: Igra Sans, sans-serif;
+    font-weight: 400;
+  }
+  
+  .team-title {
+    color: #000000;
+    font-size: 45px;
+  }
+  
+  .team-description {
+    color: #1e1e1e;
+    font-size: 40px;
+    margin: 45px 37px 0 0;
+  }
+  
+  @media (max-width: 991px) {
+    .hero-image {
+      margin-top: 40px;
+    }
+  
+    .hero-title {
+      max-width: 100%;
+      font-size: 40px;
+    }
+  
+    .cta-button {
+      margin: 40px 0 10px;
+      padding: 0 20px;
+    }
+  
+    .content-section {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+  
+    .download-section {
+      max-width: 100%;
+      padding: 100px 0 0 20px;
+    }
+  
+    .section-title {
+      max-width: 100%;
+      font-size: 40px;
+    }
+  
+    .requirements-container {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+  
+    .requirements-content {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+  
+    .requirements-image {
+      width: 100%;
+    }
+  
+    .system-image {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+  
+    .requirements-text {
+      width: 100%;
+    }
+  
+    .requirements-wrapper {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+  
+    .requirements-title {
+      max-width: 100%;
+    }
+  
+    .requirements-details {
+      max-width: 100%;
+      margin-right: 10px;
+    }
+  
+    .download-info {
+      max-width: 100%;
+    }
+  
+    .version-text {
+      max-width: 100%;
+    }
+  
+    .download-button {
+      max-width: 100%;
+      padding: 0 20px;
+    }
+  
+    .features-title {
+      max-width: 100%;
+      margin-top: 40px;
+      font-size: 40px;
+    }
+  
+    .features-section {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+  
+    .features-content {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+  
+    .feature-column {
+      width: 100%;
+    }
+  
+    .feature-text,
+    .feature-text-alt {
+      max-width: 100%;
+      margin-top: 40px;
+      padding: 0 20px;
+    }
+  
+    .team-section {
+      max-width: 100%;
+      margin-top: 40px;
+      padding: 0 20px;
+    }
+  
+    .team-content {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+  
+    .team-image-wrapper {
+      width: 100%;
+    }
+  
+    .team-image {
+      margin-top: 40px;
+    }
+  
+    .team-info {
+      width: 100%;
+    }
+  
+    .team-details {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+  
+    .team-title {
+      max-width: 100%;
+      font-size: 40px;
+    }
+  
+    .team-description {
+      max-width: 100%;
+      margin: 40px 10px 0 0;
+    }
+  }
