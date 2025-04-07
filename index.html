@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="style/style.css" />
+  <title>MathSem - Главная</title>
+  <style>
+    .hero-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 70vh;
+      background: url('img/bg-pattern.png') center center no-repeat;
+      background-size: cover;
+      position: relative;
+    }
+    
+    .hero-content {
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    .hero-logo {
+      width: 180px;
+      margin-bottom: 20px;
+    }
+    
+    .hero-tagline {
+      font-size: 18px;
+      color: #3F5566;
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+    
+    .hero-tagline span {
+      color: #577C8E;
+      font-weight: bold;
+    }
+    
+    .install-btn {
+      background-color: #577C8E;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 14px 40px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .install-btn:hover {
+      background-color: #214050;
+    }
+    
+    .info-section {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1200px;
+      width: 100%;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+    
+    .program-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 30%;
+    }
+    
+    .program-logo img {
+      width: 250px;
+      margin-bottom: 20px;
+    }
+    
+    .program-version {
+      text-align: center;
+      color: #3F5566;
+      font-size: 16px;
+    }
+    
+    .program-description {
+      width: 60%;
+      color: #3F5566;
+    }
+    
+    .description-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #3F5566;
+    }
+    
+    .description-text {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    
+    .curator-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      max-width: 1200px;
+      width: 100%;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+    
+    .curator-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    
+    .curator-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .curator-info {
+      max-width: 600px;
+    }
+    
+    .curator-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #3F5566;
+    }
+    
+    .curator-subtitle {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #577C8E;
+    }
+    
+    .curator-text {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #3F5566;
+    }
+    
+    .dark-footer {
+      background-color: #2F4157;
+      padding: 20px 120px;
+    }
+    
+    .footer-nav {
+      display: flex;
+      justify-content: space-between;
+      max-width: 600px;
+      margin: 0 auto 20px;
+    }
+    
+    .footer-nav a {
+      color: #E0E1DF;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    
+    .copyright {
+      text-align: center;
+      color: #E0E1DF;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a id="main-logo-link" href="index.html"><img src="img/logo-mathsem.png"></a>
+      <ul class="nav-left">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="reviews.html">Отзывы</a></li>
+        <li><a href="help.html">Помощь</a></li>
+        <li><a href="support.html">Поддержка</a></li>
+      </ul>
+      <ul class="nav-right">
+        <li><a href="auth.html">Войти</a></li>
+        <li><a href="https://mospolytech.ru/"><img src="img/logo-mpu.png"></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <img src="img/logo-mathsem.png" alt="MathSem Logo" class="hero-logo">
+        <p class="hero-tagline">Программа, способная <span>находить</span> закономерности</p>
+        <a href="#" class="install-btn">УСТАНОВИТЬ</a>
+      </div>
+    </section>
+
+    <!-- Program Info Section -->
+    <section class="info-section">
+      <div class="program-logo">
+        <img src="img/logo-mathsem.png" alt="MathSem Logo">
+        <div class="program-version">
+          <p>Mathsem</p>
+          <p>version 1.0.0</p>
+        </div>
+        <a href="#" class="install-btn" style="margin-top: 20px;">УСТАНОВИТЬ</a>
+      </div>
+      <div class="program-description">
+        <h2 class="description-title">ОПИСАНИЕ ПРОГРАММЫ:</h2>
+        <p class="description-text">
+          MathSem — это учебная программа, созданная студентами Московского Политеха, чтобы помочь студентам легче изучать алгебру логики и теорию множеств. Программа бесплатна, доступна для скачивания на сайте и работает на ПК с удобным интерфейсом, построенным на Qt.
+        </p>
+      </div>
+    </section>
+
+    <!-- Curator Section -->
+    <section class="curator-section">
+      <div class="curator-image">
+        <img src="img/teacher.png" alt="Андрей Люксембург">
+      </div>
+      <div class="curator-info">
+        <h2 class="curator-title">АНДРЕЙ ЛЮКСЕМБУРГ,</h2>
+        <h3 class="curator-subtitle">КУРАТОР ПРОГРАММЫ MATHSEM</h3>
+        <p class="curator-text">
+          Научный руководитель проекта MATHSEM, по совместительству ответственный за его создание
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <ul class="footer-content">
+      <p>Mathsem 2024, все права защищены</p>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="reviews.html">Отзывы</a></li>
+      <li><a href="support.html">Тех. Поддержка</a></li>
+      <li><a href="https://instagram.com/mospolytech">@mospolytech</a></li>
+    </ul>
+  </footer>
+</body>
+</html> 

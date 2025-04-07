@@ -6,8 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginValue = document.getElementById("login").value;
     const passwordValue = document.getElementById("password").value;
     
-    // For demo, just log the values. 
-    // In real usage, you'd handle authentication or form submission here.
     console.log("Логин:", loginValue);
     console.log("Пароль:", passwordValue);
 
@@ -46,7 +44,14 @@ function drawLoginForm(formHeader) {
     <button type="submit" class="btn-submit">ВОЙТИ</button>
   `;
   formWrapper.appendChild(form);
+
+  const forgotPasswordLink = form.querySelector('.forgot-password');
+  forgotPasswordLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    drawForgotPasswordForm(formHeader);
+  });
 }
+
 function drawRegisterForm(formHeader) {
   const formWrapper = document.querySelector('.form-wrapper');
   const registerHeaderLink = formHeader.querySelector('#register-header-link');
@@ -57,7 +62,6 @@ function drawRegisterForm(formHeader) {
   if (loginHeaderLink.classList.contains('active')) {
     loginHeaderLink.classList.remove('active');
   }
-  console.log(formWrapper);
 
   formWrapper.children[0].textContent = "РЕГИСТРАЦИЯ НА ПЛАТФОРМЕ MATHSEM";
   if (formWrapper.children[1]) {
@@ -78,9 +82,49 @@ function drawRegisterForm(formHeader) {
   formWrapper.appendChild(form);
 }
 
+function drawForgotPasswordForm(formHeader) {
+  const formWrapper = document.querySelector('.form-wrapper');
+  const loginHeaderLink = formHeader.querySelector('#login-header-link');
+  const registerHeaderLink = formHeader.querySelector('#register-header-link');
+  
+  // Remove active class from both header links
+  if (loginHeaderLink.classList.contains('active')) {
+    loginHeaderLink.classList.remove('active');
+  }
+  if (registerHeaderLink.classList.contains('active')) {
+    registerHeaderLink.classList.remove('active');
+  }
+
+  formWrapper.children[0].textContent = "ВОССТАНОВЛЕНИЕ ПАРОЛЯ";
+  if (formWrapper.children[1]) {
+    formWrapper.children[1].remove();
+  }
+
+  const form = document.createElement("form");
+  form.id = "forgot-password-form";
+  form.classList.add("main-form");
+  form.innerHTML = `
+    <div class="form-inputs">
+      <input class="input" placeholder="ПОЧТА/ЛОГИН" type="text" id="login" name="login" required>
+    </div>
+    <button type="submit" style="margin-top:20px" class="btn-submit">ПРИСЛАТЬ КОД</button>
+  `;
+  formWrapper.appendChild(form);
+}
 
 function formRebuilding() {
   const formHeader = document.querySelector('.form-header')
+  const formWrapper = document.querySelector('.form-wrapper')
+  
+  // Add click handler for forgot password link in the initial form
+  const initialForgotPasswordLink = formWrapper.querySelector('.forgot-password');
+  if (initialForgotPasswordLink) {
+    initialForgotPasswordLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      drawForgotPasswordForm(formHeader);
+    });
+  }
+
   formHeader.addEventListener('click', (e) => {
     e.preventDefault();
     const targetObj = e.target;
@@ -91,6 +135,9 @@ function formRebuilding() {
       if (targetObj.id === 'register-header-link' && !targetObj.classList.contains('active')) {
         drawRegisterForm(formHeader);
       }
+    }
+    if (targetObj.classList.contains('forgot-password')) {
+      drawForgotPasswordForm(formHeader);
     }
   });
 }
