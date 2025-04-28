@@ -189,8 +189,10 @@ form.main-form {
   text-align: center;
   min-height: 70vh;
 }
+.first-section {
+  padding-top: 140px;
+}
 #hero-section {
-  padding-top: 120px;
   min-height: 100vh;
   background: url('../img/index-background.png') center center no-repeat;
   background-size: cover;
