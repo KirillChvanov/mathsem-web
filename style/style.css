@@ -130,13 +130,18 @@ form.main-form {
   gap: 20px;
   width: 100%;
 }
+.input-form-label {
+  padding: 15px 30px;
+  font-weight: 800;
+  color: #577C8E;
+}
+
 .input {
   padding: 15px 30px;
   background-color: #F4EFEB;
   border: none;
   border-radius: 4px;
 
-  /* font-size: 14px; */
   font-weight: 800;
   text-align: center;
   color: #3F5566;
@@ -276,6 +281,18 @@ form.main-form {
   width: 60%;
   color: #3F5566;
   text-align: start;
+}
+.section-vertical-start {
+  align-items: start;
+  justify-content: start;
+  background-color: #F6F1EB;
+  padding-top: 200px;
+  max-width: 1460px;
+  gap: 15px;
+}
+
+.section-left {
+  text-align: left;
 }
 
 .section-title {
