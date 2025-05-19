@@ -42,7 +42,7 @@ header {
 .nav-left {
   display: flex;
   list-style: none;
-  gap: 70px;
+  gap: 70px !important;
 }
 .nav-right {
   display: flex;
