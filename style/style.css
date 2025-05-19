@@ -197,6 +197,10 @@ form.main-form {
 .first-section {
   padding-top: 140px;
 }
+.last-section {
+  padding-bottom: 50px;
+}
+
 #hero-section {
   min-height: 100vh;
   background: url('../img/index-background.png') center center no-repeat;

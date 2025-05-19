@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Математические презентации</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/about.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a id="main-logo-link" href="index.html"><img src="img/logo-without-text.png"></a>
+            <ul class="nav-left">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="reviews.html">Отзывы</a></li>
+                <li><a href="about.html">Справочные материалы</a></li>
+                <li><a href="support.html">Поддержка</a></li>
+            </ul>
+            <ul class="nav-right">
+                <li><a href="auth.html">Войти</a></li>
+                <li><a href="https://mospolytech.ru/"><img src="img/logo-mpu.png"></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section first-section presentation-section">
+            <h2 class="section-title">Введение в алгебру логики</h2>
+            <div class="presentation-item" data-pdf="Булева_Алгебра">[Презентация Булева_Алгебра]</div>
+        </section>
+
+        <section class="section presentation-section">
+            <h2 class="section-title">Построения в области алгебры логики</h2>
+            <div class="presentation-item" data-pdf="Логика_Предикатов_Первого_Порядка">[Презентация Логика_Предикатов_Первого_Порядка]</div>
+            <div class="presentation-item" data-pdf="Основы_Логики_Предикатов_Первого_Порядка">[Презентация Основы_Логики_Предикатов_Первого_Порядка]</div>
+            <div class="presentation-item" data-pdf="Автоматизированные_Построения_В_Математике">[Презентация Автоматизированные_Построения_В_Математике]</div>
+        </section>
+
+        <section class="section presentation-section">
+            <h2 class="section-title">Введение в теорию множеств</h2>
+            <div class="presentation-item" data-pdf="Введение_В_Теорию_Множеств">[Презентация Введение_В_Теорию_Множеств]</div>
+            <div class="presentation-item" data-pdf="Теория_Множеств">[Презентация Теория_Множеств]</div>
+        </section>
+
+        <section class="section last-section presentation-section">
+            <h2 class="section-title">Построения в области теории множеств</h2>
+            <div class="presentation-item" data-pdf="Парадокс_Рассела">[Презентация Парадокс_Рассела]</div>
+            <div class="presentation-item" data-pdf="Парадокс_Кантора">[Презентация Парадокс_Кантора]</div>
+        </section>
+    </main>
+
+    <footer>
+        <ul class="footer-content">
+            <p>Mathsem 2024, все права защищены</p>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="reviews.html">Отзывы</a></li>
+            <li><a href="support.html">Тех. Поддержка</a></li>
+            <li><a href="https://instagram.com/mospolytech">@mospolytech</a></li>
+        </ul>
+  </footer>
+
+    <div id="pdf-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <iframe id="pdf-viewer" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <script src="scripts/about.js"></script>
+</body>
+</html>
