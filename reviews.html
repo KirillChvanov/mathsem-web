@@ -10,7 +10,18 @@
   <header>
     <nav class="navbar">
       <a id="main-logo-link" href="index.html"><img src="img/logo-without-text.png"></a>
-      <ul class="nav-left">
+      
+      <!-- Mobile menu toggle button -->
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" 
+              aria-label="Toggle navigation menu" 
+              aria-expanded="false"
+              aria-controls="main-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <ul class="nav-left" id="main-navigation">
         <li><a href="index.html">Главная</a></li>
         <li><a href="reviews.html">Отзывы</a></li>
         <li><a href="about.html">Справочные материалы</a></li>
@@ -24,37 +35,29 @@
   </header>
 
   <main>
+    <!-- Message Section -->
+    <section class="message-section" id="message-section" style="display: none;">
+      <div class="message-container">
+        <div class="message-content" id="message-content">
+          <span class="message-text" id="message-text"></span>
+          <button class="message-close" id="message-close" onclick="hideMessage()">&times;</button>
+        </div>
+      </div>
+    </section>
+
     <section class="first-section section" id="reviews-section">
       <div class="section-part" id="first-part">
         <h2 class="section-title">ОСТАВИТЬ ОТЗЫВ О MATHSEM</h2>
-        <p>Опишите свой отзыв в этом поле:</p>
-        <textarea></textarea>
-        <button class="button submit-btn">Отправить</button>
+        <form id="review-form">
+          <p>Опишите свой отзыв в этом поле:</p>
+          <textarea id="review-textarea" placeholder="Введите ваш отзыв здесь..." required></textarea>
+          <button type="submit" class="button submit-btn">Отправить</button>
+        </form>
       </div>
       <div class="section-part" id="second-part">
         <h2 class="section-title">ОТЗЫВЫ ДРУГИХ ПОЛЬЗОВАТЕЛЕЙ</h2>
         <div class="reviews">
-          <div class="review">
-            <h4 class="review-author">deadlyparcourkiller</h4>
-            <p class="review-content">
-              Программа просто пушка! я смог разобраться с дискретной математикой с ее помощью. Советую всем студентам
-            </p>
-          </div>
-          <hr>
-          <div class="review">
-            <h4 class="review-author">brawlstarscrazy2016</h4>
-            <p class="review-content">
-              Хороший продукт для учебного прокекта. Желаю успехов в развитии программы!
-            </p>
-          </div>
-          <hr>
-          <div class="review">
-            <h4 class="review-author">blabla</h4>
-            <p class="review-content">
-              Пользуюсь программой для изучения дискретной математики. Очень помогает.
-            </p>
-          </div>
-          
+          <!-- Reviews will be loaded dynamically from the backend -->
         </div>
       </div>
     </section>

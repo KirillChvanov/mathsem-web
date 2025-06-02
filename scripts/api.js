@@ -1,5 +1,6 @@
 // API Service for Mathsem Backend Integration
 // Base URL for the backend API
+// const API_BASE_URL = 'http://194.87.234.38:8080/api';
 const API_BASE_URL = 'http://localhost:8080/api';
 
 // Utility function to make HTTP requests
@@ -33,7 +34,8 @@ async function makeRequest(url, options = {}) {
 
         // Try to parse JSON response
         if (response.headers.get('content-type')?.includes('application/json')) {
-            return await response.json();
+            const data = await response.json();
+            return data;
         }
         
         return { success: response.ok };
@@ -52,7 +54,7 @@ const UserAPI = {
             body: JSON.stringify({
                 username: userData.username,
                 email: userData.email,
-                passwordHash: userData.password // In real app, this should be hashed on frontend
+                passwordHash: userData.password
             })
         });
     },
@@ -84,9 +86,46 @@ const UserAPI = {
     // Login simulation (since we don't have authentication endpoint)
     // This is a workaround - in real app you'd have /auth/login endpoint
     async login(credentials) {
-        // For demo purposes, we'll try to find user by email/username
-        // In real app, this would be handled by authentication service
-        throw new Error('Login endpoint not implemented in backend');
+        try {
+            // Try known user IDs to find matching credentials
+            const knownUserIds = [1, 2, 3, 4, 5]; // Try first 5 users
+            
+            for (const userId of knownUserIds) {
+                try {
+                    const user = await this.getUser(userId);
+                    if (user && (user.username === credentials.username || user.email === credentials.username)) {
+                        // In a real app, you'd verify the password hash here
+                        // For demo, we'll accept any password
+                        return {
+                            id: user.id,
+                            username: user.username,
+                            email: user.email
+                        };
+                    }
+                } catch (error) {
+                    // User doesn't exist, continue checking
+                    continue;
+                }
+            }
+            
+            throw new Error('Неверные учетные данные');
+        } catch (error) {
+            throw new Error('Ошибка при входе в систему');
+        }
+    },
+
+    // Validate user session by checking if user still exists
+    async validateSession(userId) {
+        try {
+            const user = await this.getUser(userId);
+            return {
+                id: user.id,
+                username: user.username,
+                email: user.email
+            };
+        } catch (error) {
+            throw new Error('Сессия недействительна');
+        }
     }
 };
 
@@ -99,7 +138,7 @@ const ReviewAPI = {
             body: JSON.stringify({
                 user: { id: reviewData.userId },
                 reviewText: reviewData.text,
-                rating: reviewData.rating
+                rating: reviewData.rating || 5
             })
         });
     },
@@ -116,26 +155,37 @@ const ReviewAPI = {
         });
     },
 
-    // Get all reviews (simulation - backend doesn't have this endpoint)
-    // We'll need to modify this approach since there's no "get all" endpoint
+    // Get all reviews from backend
     async getAllReviews() {
-        // Since backend doesn't have GET /reviews endpoint, 
-        // we'll return mock data and suggest backend enhancement
-        console.warn('Backend does not have GET /reviews endpoint. Using mock data.');
-        return [
-            {
-                id: 1,
-                user: { username: 'deadlyparcourkiller' },
-                reviewText: 'Программа просто пушка! я смог разобраться с дискретной математикой с ее помощью. Советую всем студентам',
-                rating: 5
-            },
-            {
-                id: 2,
-                user: { username: 'brawlstarscrazy2016' },
-                reviewText: 'Хороший продукт для учебного прокекта. Желаю успехов в развитии программы!',
-                rating: 4
-            }
-        ];
+        try {
+            return await makeRequest(`${API_BASE_URL}/reviews`);
+        } catch (error) {
+            console.error('Failed to fetch reviews from backend:', error);
+            // Fallback to static reviews if backend is unavailable
+            return [
+                {
+                    id: 1,
+                    user: { username: 'deadlyparcourkiller' },
+                    reviewText: 'Программа просто пушка! я смог разобраться с дискретной математикой с ее помощью. Советую всем студентам',
+                    rating: 5,
+                    createdAt: '2024-01-15T10:30:00Z'
+                },
+                {
+                    id: 2,
+                    user: { username: 'brawlstarscrazy2016' },
+                    reviewText: 'Хороший продукт для учебного прокекта. Желаю успехов в развитии программы!',
+                    rating: 4,
+                    createdAt: '2024-01-10T14:20:00Z'
+                },
+                {
+                    id: 3,
+                    user: { username: 'blabla' },
+                    reviewText: 'Пользуюсь программой для изучения дискретной математики. Очень помогает.',
+                    rating: 5,
+                    createdAt: '2024-01-05T09:15:00Z'
+                }
+            ];
+        }
     }
 };
 
@@ -183,6 +233,26 @@ const SessionManager = {
 
     isLoggedIn() {
         return this.getUser() !== null;
+    },
+
+    // Validate current session against backend
+    async validateSession() {
+        const user = this.getUser();
+        if (!user || !user.id) {
+            this.clearUser();
+            return false;
+        }
+
+        try {
+            const validatedUser = await UserAPI.validateSession(user.id);
+            // Update user data in case it changed
+            this.setUser(validatedUser);
+            return true;
+        } catch (error) {
+            console.warn('Session validation failed:', error.message);
+            this.clearUser();
+            return false;
+        }
     }
 };
 

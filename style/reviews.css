@@ -4,6 +4,7 @@
     justify-content: space-between;
     background-color: #F6F1EB;
     padding-top: 200px;
+    margin-bottom: 100px;
     max-width: 1460px;
     gap: 30px;
 }
@@ -24,7 +25,7 @@
     font-weight: 550;
     color: #2F4157;
 }
-section textarea {
+section textarea, #review-textarea {
     border: 1.5px solid #577c8e71;
     border-radius: 14px;
     text-align: start;
@@ -32,20 +33,56 @@ section textarea {
     background-color: #F4EFEB;
     width: 100%;
     height: 250px;
-    resize: none; /* Prevent textarea from being resizable */
+    resize: none;
+    font-family: "organetto-variable", sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    transition: border-color 0.3s ease;
+}
+
+section textarea:focus, #review-textarea:focus {
+    outline: none;
+    border-color: #577C8E;
+}
+
+section textarea::placeholder, #review-textarea::placeholder {
+    color: #577C8E80;
+    font-style: italic;
+}
+
+#review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .submit-btn {
     align-self: end;
     padding: 20px 30px;
     width: 180px;
-    background-color: #F6F1EB;
-    color: #577C8E;
+    background-color: #577C8E;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+}
+
+.submit-btn:hover:not(:disabled) {
+    background-color: #446575;
+}
+
+.submit-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
 
 .reviews {
     display: flex;
     flex-direction: column;
+    height: 500px;
+    overflow: scroll;
     gap: 20px;
 }
 .review-author {
@@ -53,4 +90,121 @@ section textarea {
 }
 .review-content {
     color: #000000;
+}
+
+/* Message Section Styles */
+.message-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.message-container {
+    max-width: 1460px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.message-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 25px;
+    border-radius: 12px;
+    font-weight: 550;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    animation: slideDown 0.4s ease-out;
+}
+
+/* Message Types */
+.message-content.success {
+    background-color: #d4edda;
+    color: #155724;
+    border-left: 4px solid #28a745;
+}
+
+.message-content.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-left: 4px solid #dc3545;
+}
+
+.message-content.warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border-left: 4px solid #ffc107;
+}
+
+.message-content.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border-left: 4px solid #17a2b8;
+}
+
+.message-text {
+    flex: 1;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.message-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: inherit;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+    margin-left: 15px;
+}
+
+.message-close:hover {
+    opacity: 1;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.message-section.fade-out {
+    animation: fadeOut 0.3s ease-out forwards;
+}
+
+/* Responsive design for messages */
+@media (max-width: 768px) {
+    .message-container {
+        padding: 15px;
+    }
+    
+    .message-content {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+    
+    .message-close {
+        font-size: 20px;
+        margin-left: 10px;
+    }
 }

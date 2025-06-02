@@ -10,7 +10,18 @@
   <header>
     <nav class="navbar">
       <a id="main-logo-link" href="index.html"><img src="img/logo-mathsem.png"></a>
-      <ul class="nav-left">
+      
+      <!-- Mobile menu toggle button -->
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" 
+              aria-label="Toggle navigation menu" 
+              aria-expanded="false"
+              aria-controls="main-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <ul class="nav-left" id="main-navigation">
         <li><a href="index.html">Главная</a></li>
         <li><a href="reviews.html">Отзывы</a></li>
         <li><a href="about.html">Справочные материалы</a></li>
@@ -54,6 +65,7 @@
   </footer>
 
   <script src="scripts/api.js"></script>
+  <script src="scripts/navigation.js"></script>
   <script src="scripts/auth.js"></script>
 </body>
 </html>

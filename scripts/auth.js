@@ -46,29 +46,26 @@ async function handleLogin(form) {
     throw new Error('Пожалуйста, заполните все поля');
   }
 
-  // Since backend doesn't have authentication endpoint, 
-  // we'll simulate login by creating a session
-  // In real app, you'd validate credentials with backend
-  
   showLoading(true);
   
-  // Simulate API delay
-  await new Promise(resolve => setTimeout(resolve, 1000));
-  
-  // For demo, create a mock user session
-  const mockUser = {
-    id: Date.now(), // Generate random ID
-    username: login,
-    email: login.includes('@') ? login : `${login}@example.com`
-  };
-  
-  SessionManager.setUser(mockUser);
-  showSuccess('Вход выполнен успешно!');
-  
-  // Redirect to account page after short delay
-  setTimeout(() => {
-    window.location.href = 'account.html';
-  }, 1500);
+  try {
+    // Use the backend login API
+    const user = await UserAPI.login({
+      username: login,
+      password: password
+    });
+    
+    SessionManager.setUser(user);
+    showSuccess('Вход выполнен успешно!');
+    
+    // Redirect to account page after short delay
+    setTimeout(() => {
+      window.location.href = 'account.html';
+    }, 1500);
+    
+  } catch (error) {
+    throw new Error(error.message || 'Ошибка при входе в систему');
+  }
 }
 
 async function handleRegistration(form) {
